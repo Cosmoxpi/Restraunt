@@ -1,0 +1,265 @@
+/* Responsive fixes for Food Shop */
+
+/* Base responsive container */
+.container {
+  width: 100%;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* Responsive breakpoints */
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+/* Menu page responsive grid */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .menu-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Fix for food cards to maintain equal height */
+.food-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.food-card-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Fix for category navigation on mobile */
+.category-nav {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+}
+
+.category-nav::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
+}
+
+/* Fix for navbar on mobile */
+@media (max-width: 768px) {
+  .mobile-menu {
+    position: fixed;
+    top: 4rem;
+    left: 0;
+    right: 0;
+    background: white;
+    z-index: 50;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* Fix for images */
+.food-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  background-color: #f9f9f9;
+}
+
+/* Fallback for missing images */
+.image-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f3f4f6;
+  color: #9ca3af;
+  font-size: 0.875rem;
+  height: 100%;
+  width: 100%;
+}
+
+/* Circular Food Card Styling */
+.food-card-container {
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.food-card-circular {
+  background-color: white;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.food-card-circular:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(255, 128, 0, 0.15);
+  border-color: rgba(255, 128, 0, 0.3);
+}
+
+.food-image-circular {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 24px 24px 0 0;
+  transition: transform 0.5s ease;
+}
+
+.food-card-circular:hover .food-image-circular {
+  transform: scale(1.05);
+}
+
+.food-card-content {
+  padding: 1.25rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.food-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.food-description {
+  font-size: 0.875rem;
+  color: #666;
+  margin-bottom: 1rem;
+  flex-grow: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.food-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.food-price {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ff6b00;
+}
+
+.add-to-cart-btn {
+  background: linear-gradient(to right, #ff8c00, #ff4500);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 6px rgba(255, 140, 0, 0.2);
+}
+
+.add-to-cart-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 8px rgba(255, 140, 0, 0.3);
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 640px) {
+  .food-card-container {
+    padding: 0.75rem;
+  }
+  
+  .food-card-circular {
+    border-radius: 20px;
+  }
+  
+  .food-image-circular {
+    height: 160px;
+    border-radius: 20px 20px 0 0;
+  }
+  
+  .food-card-content {
+    padding: 1rem;
+  }
+  
+  .food-title {
+    font-size: 1.1rem;
+  }
+  
+  .food-description {
+    font-size: 0.8rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .food-price {
+    font-size: 1.1rem;
+  }
+  
+  .add-to-cart-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.7rem;
+  }
+}
+
+/* Menu grid with better spacing for circular cards */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 0.5rem;
+  padding: 0.5rem;
+}
+
+@media (min-width: 640px) {
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .menu-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+}
